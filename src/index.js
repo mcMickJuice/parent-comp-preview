@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom'
 import Form from './form'
 import config from './config'
 
-import './styles.css'
-
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ display: 'flex', justifyContent: 'space-between' }}
+    >
       <Form />
-      <iframe width="800px" height="1000px" src={config.childFrameUrl} />
+      <iframe width="1000px" height="1000px" src={config.childFrameUrl} />
     </div>
   )
 }
