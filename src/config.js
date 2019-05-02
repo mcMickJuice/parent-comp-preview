@@ -1,5 +1,5 @@
 const config = {
-  childFrameUrl: 'https://child-comp-preview.netlify.com'
+  childFrameUrl: 'https://wired-child-comp-preview.netlify.com'
 }
 
 export default config
