@@ -1,4 +1,5 @@
 import React from 'react'
+import { focusElement, blurElement } from './frameService'
 
 interface Props {
   label: string
@@ -14,6 +15,12 @@ const Input = ({ defaultValue, label, selector, onChange }: Props) => {
       <input
         defaultValue={defaultValue}
         type="text"
+        onMouseEnter={() => {
+          focusElement(selector)
+        }}
+        onMouseLeave={() => {
+          blurElement(selector)
+        }}
         onBlur={evt => {
           const value = evt.currentTarget.value
 

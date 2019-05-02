@@ -30,7 +30,7 @@ const HeaderForm = () => {
         defaultValue={initialHeaderData}
         onChange={handleHeaderChange}
         label="Headline"
-        selector=".storyblock-header"
+        selector="global-header"
       />
     </div>
   )

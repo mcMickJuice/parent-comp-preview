@@ -1,6 +1,7 @@
 import React from 'react'
 import FormContext from './FormContext'
 import Input from './Input'
+import Select from './Select'
 
 interface Props {
   sectionId: 'section-1' | 'section-2' | 'section-3'
@@ -22,6 +23,24 @@ function useForm(sectionId: 'section-1' | 'section-2' | 'section-3') {
     updateSection
   }
 }
+
+const images = [
+  {
+    display: 'Blue Wilderness',
+    value:
+      '//target.scene7.com/is/image/Target/Baxter168545-190319_1553004845762?wid=720&qlt=60&fmt=webp'
+  },
+  {
+    display: 'Opalhouse',
+    value:
+      '//target.scene7.com/is/image/Target/Opalhouse_2168545-190319_1553004815885?wid=720&qlt=60&fmt=webp'
+  },
+  {
+    display: 'Auden',
+    value:
+      '//target.scene7.com/is/image/Target/Auden168545-190313_1552509736086?wid=720&qlt=60&fmt=webp'
+  }
+]
 
 const SectionForm = ({ sectionId }: Props) => {
   const { initialSectionData, updateSection } = useForm(sectionId)
@@ -57,35 +76,23 @@ const SectionForm = ({ sectionId }: Props) => {
 
   return (
     <div>
-      <h3>Section 1</h3>
-      <select
+      <h3>{sectionId}</h3>
+      <Select
         defaultValue={initialSectionData.imageUrl}
-        onChange={(evt: any) => {
-          const { value } = evt.currentTarget
-
-          handleImageChange(value)
-        }}
-      >
-        <option value="//target.scene7.com/is/image/Target/Baxter168545-190319_1553004845762?wid=720&qlt=60&fmt=webp">
-          Blue Wilderness
-        </option>
-        <option value="//target.scene7.com/is/image/Target/Opalhouse_2168545-190319_1553004815885?wid=720&qlt=60&fmt=webp">
-          Opalhouse
-        </option>
-        <option value="//target.scene7.com/is/image/Target/Auden168545-190313_1552509736086?wid=720&qlt=60&fmt=webp">
-          Auden
-        </option>
-      </select>
+        onChange={handleImageChange}
+        options={images}
+        selector={`${sectionId}-image`}
+      />
       <Input
         defaultValue={initialSectionData.header}
         label="Headline"
-        selector=".section-1  .section-headline"
+        selector={`${sectionId}-header`}
         onChange={handleHeadlineChange}
       />
       <Input
         defaultValue={initialSectionData.subheader}
         label="Subhead"
-        selector=".section-1  .section-subhead"
+        selector={`${sectionId}-subheader`}
         onChange={handleSubheadChange}
       />
     </div>

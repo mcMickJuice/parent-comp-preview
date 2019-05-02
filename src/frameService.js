@@ -3,7 +3,8 @@ import config from './config'
 export function focusElement(selector) {
   const message = {
     selector,
-    type: 'focus'
+    type: 'highlight',
+    action: 'focus'
   }
   postMessage(message)
 }
@@ -11,7 +12,8 @@ export function focusElement(selector) {
 export function blurElement(selector) {
   const message = {
     selector,
-    type: 'blur'
+    type: 'highlight',
+    ation: 'blur'
   }
   postMessage(message)
 }
