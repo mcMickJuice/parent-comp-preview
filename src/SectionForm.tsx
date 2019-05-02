@@ -31,11 +31,11 @@ const SectionForm = ({ sectionId }: Props) => {
     updateSection(state)
   }, [state])
 
-  function handleHeadlineChange(headline: string) {
+  function handleHeadlineChange(header: string) {
     updateState(state => {
       return {
         ...state,
-        headline
+        header
       }
     })
   }

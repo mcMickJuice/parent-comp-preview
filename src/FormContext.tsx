@@ -1,4 +1,5 @@
 import React from 'react'
+import { componentUpdate } from './frameService'
 
 interface Section {
   id: string
@@ -53,6 +54,7 @@ export const FormContextProvider = ({ initialData, children }: Props) => {
 
   React.useEffect(() => {
     console.log('new component data', componentData)
+    componentUpdate(componentData)
   }, [componentData])
 
   function getDefaultSectionValue(

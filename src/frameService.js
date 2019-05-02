@@ -16,6 +16,15 @@ export function blurElement(selector) {
   postMessage(message)
 }
 
+export function componentUpdate(componentData) {
+  const message = {
+    type: 'ce',
+    componentData
+  }
+
+  postMessage(message)
+}
+
 function postMessage(message) {
   window.frames[0].postMessage(JSON.stringify(message), config.childFrameUrl)
 }
