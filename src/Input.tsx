@@ -21,7 +21,7 @@ const Input = ({ defaultValue, label, selector, onChange }: Props) => {
       setFocus(false)
     }
 
-    if (type === 'mouseenter') {
+    if (type === 'mouseenter' || type === 'focus') {
       focusElement(selector)
     } else if (type === 'mouseleave' || type === 'blur') {
       blurElement(selector)
